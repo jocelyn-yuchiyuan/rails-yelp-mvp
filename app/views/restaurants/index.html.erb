@@ -1,0 +1,30 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80);">
+  <div class="container">
+     <h1>Restaurants</h1>
+
+    <%=link_to new_restaurant_path(@restaurant), class:"btn p-2 m-3  btn-ghost" do %>
+      Add Restauraunt
+    <% end %>
+
+  </div>
+</div>
+
+
+
+
+<div class="cards">
+
+    <%@restaurants.each do |restaurant| %>
+    <div class="card-category d-flex ">
+            <%= link_to restaurant.name,restaurant_path(restaurant.id) %>
+
+
+        <%end%>
+
+
+    </div>
+
+
+</div>
+
+

@@ -1,0 +1,59 @@
+<div class="container">
+
+<div class="card">
+  <div class="card-header">
+    <h2><%= @restaurant.name %></h2>
+  </div>
+    <div class="card-body">
+
+        <p><%= "Address:#{@restaurant.address}" %></p>
+        <p><%= "Category:#{@restaurant.category}" %></p>
+        <p><%= @restaurant.phone_number %></p>
+
+    </div>
+    <div class="card">
+      <div class ="card-header">
+        <h2>Review</h2>
+      </div>
+        <div class="card-body">
+
+            <% @restaurant.reviews.each do |review| %>
+              <p><%= review.content %></p>
+              <%review.rating.times do %>
+              <%= '⭐️' %>
+              <% end %>
+            <% end %>
+      </div>
+      <div class="card">
+
+        <div class="d-flex m-3 p-3">
+
+
+        <%=link_to "📝", edit_restaurant_path(@restaurant) %>
+        <%=link_to "🗑", restaurant_path(@restaurant), method: :delete,data: { confirm: "Are you sure?" } %>
+
+        <%= link_to '⏎', restaurants_path %>
+        <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
